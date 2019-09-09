@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
         moveVelocity2 = dir * moveSpeed;
 
+        transform.LookAt(new Vector3(dir.x + transform.position.x, transform.position.y, dir.z + transform.position.z));
+
 
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * moveSpeed;
@@ -47,17 +49,17 @@ public class PlayerController : MonoBehaviour
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
 
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            //transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
         if (Input.GetMouseButton(0))
         {
-            theGun.isFiring = true;
+            //theGun.isFiring = true;
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            theGun.isFiring = false;
+            //theGun.isFiring = false;
         }
     }
 
