@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody enemyRigidbody;
     public float moveSpeed;
 
-    public PlayerController thePlayer;
+    private PlayerController thePlayer;
 
     // Start is called before the first frame update
     void Start()

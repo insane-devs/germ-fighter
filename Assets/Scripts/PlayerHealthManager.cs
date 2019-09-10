@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealthManager : MonoBehaviour
 {
     public int startingHealth;
-    private int currentHealth;
+    public int currentHealth;
 
     public float flashTime;
     private float flashCounter;
