@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HurtPlayer : MonoBehaviour
 {
-    public int damageToGive;
+    public int minDamage;
+    public int maxDamage;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToGive);
+            System.Random rand = new System.Random();
+            other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(rand.Next(minDamage, maxDamage + 1));
         }
     }
 }
