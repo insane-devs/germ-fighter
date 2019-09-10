@@ -13,16 +13,12 @@ public class HurtPlayer : MonoBehaviour
     private float attackCounter;
 
     private bool collided;
-    private Collider obj;
 
-    public LayerMask playerLayer;
-    public Collider[] nearPlayer;
-    public float checkRadius;
+    private Collider[] nearPlayer;
 
     public void OnTriggerEnter(Collider other)
     {
         collided = true;
-        obj = other;
         
     }
 
@@ -39,9 +35,21 @@ public class HurtPlayer : MonoBehaviour
 
     void Update()
     {
-        nearPlayer = Physics.OverlapSphere(transform.position, checkRadius, playerLayer);
-        Debug.Log(nearPlayer.Length);
-        if (nearPlayer.Length >= 1)
+        collided = false;
+        nearPlayer = Physics.OverlapSphere(transform.position, 0.5f);
+        foreach (Collider collider in nearPlayer)
+        {
+            if (collider.gameObject.tag == "Player")
+            {
+                collided = true;
+                break;
+            } else
+            {
+                continue;
+            }
+        }
+        
+        if (collided)
         {
             attackCounter -= Time.deltaTime;
             if (attackCounter <= 0)
@@ -52,20 +60,5 @@ public class HurtPlayer : MonoBehaviour
             }
 
         }
-        
-        /*
-        Debug.Log(obj);
-        if (collided && obj != null && obj.gameObject.tag == "Player")
-        {
-            attackCounter -= Time.deltaTime;
-            if (attackCounter <= 0)
-            {
-                Debug.Log("hi or sumn");
-                attackCounter = timeBetweenAttacks;
-                System.Random rand = new System.Random();
-                player.HurtPlayer(rand.Next(minDamage, maxDamage + 1));
-            }
-
-        }*/
     }
 }
