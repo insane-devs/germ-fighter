@@ -59,8 +59,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDamage: 20
   maxDamage: 40
-  player: {fileID: 0}
   timeBetweenAttacks: 3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  nearPlayer: 0
 --- !u!1 &7361260465171389976
 GameObject:
   m_ObjectHideFlags: 0
