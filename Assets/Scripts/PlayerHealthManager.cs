@@ -42,6 +42,7 @@ public class PlayerHealthManager : MonoBehaviour
     public void HurtPlayer(int damage)
     {
         currentHealth -= damage;
+        if (currentHealth < 0) currentHealth = 0;
         flashCounter = flashTime;
         rend.material.SetColor("_Color", Color.red);
     }

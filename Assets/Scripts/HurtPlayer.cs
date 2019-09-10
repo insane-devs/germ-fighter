@@ -7,7 +7,7 @@ public class HurtPlayer : MonoBehaviour
     public int minDamage;
     public int maxDamage;
 
-    public PlayerHealthManager player;
+    private PlayerHealthManager player;
 
     public float timeBetweenAttacks;
     private float attackCounter;
@@ -29,6 +29,7 @@ public class HurtPlayer : MonoBehaviour
 
     private void Start()
     {
+        player = FindObjectOfType<PlayerHealthManager>();
         collided = false;
     }
 
@@ -36,14 +37,14 @@ public class HurtPlayer : MonoBehaviour
     {
         if (collided && obj != null && obj.gameObject.tag == "Player")
         {
-            //Debug.Log("check");
+            Debug.Log("yayayay YEET");
             attackCounter -= Time.deltaTime;
-            if(attackCounter <= 0)
+            if (attackCounter <= 0)
             {
-                //Debug.Log("attack!");
+                Debug.Log("hi or sumn");
                 attackCounter = timeBetweenAttacks;
                 System.Random rand = new System.Random();
-                player.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(rand.Next(minDamage, maxDamage + 1));
+                player.HurtPlayer(rand.Next(minDamage, maxDamage + 1));
             }
 
         }
