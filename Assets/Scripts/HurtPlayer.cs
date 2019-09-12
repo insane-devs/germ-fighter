@@ -16,6 +16,17 @@ public class HurtPlayer : MonoBehaviour
 
     private Collider[] nearPlayer;
 
+    public void OnTriggerEnter(Collider other)
+    {
+        collided = true;
+        
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        collided = false;
+    }
+
     private void Start()
     {
         player = FindObjectOfType<PlayerHealthManager>();
