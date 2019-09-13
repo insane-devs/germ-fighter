@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public VirtualJoystick joystick;
     private Vector3 moveVelocity2;
 
+    public GunController theGun;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * moveSpeed;
+
     }
 
     void FixedUpdate()
