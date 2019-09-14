@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Enemy Boss
   - Enemy
   layers:
   - Default
@@ -15,7 +16,7 @@ TagManager:
   - 
   - 
   - PlayerLayer
-  - 
+  - Post-Game
   - 
   - 
   - 

@@ -152,10 +152,6 @@ MonoBehaviour:
   minDamage: 2
   maxDamage: 10
   timeBetweenAttacks: 1
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  nearPlayer: 0
 --- !u!1 &826705848251432995
 GameObject:
   m_ObjectHideFlags: 0

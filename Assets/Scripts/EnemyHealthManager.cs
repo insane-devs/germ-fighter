@@ -6,6 +6,7 @@ public class EnemyHealthManager : MonoBehaviour
 {
     public int health;
     private int currentHealth;
+    private int scoreToAdd;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,9 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            if (gameObject.tag == "Enemy Boss") scoreToAdd = 30;
+            else scoreToAdd = 10;
+            FindObjectOfType<PlayerScoreManager>().AddScore(scoreToAdd);
             Destroy(gameObject);
         }
     }

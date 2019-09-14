@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnGerms : MonoBehaviour
+public class GermSpawner : MonoBehaviour
 {
     public GameObject pabidangGerm;
     public GameObject pacuteNaGerm;
@@ -15,6 +15,11 @@ public class SpawnGerms : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {
+        SpawnGerms();
+    }
+
+    public void SpawnGerms()
     {
         SpawnGerm(pabidangGerm, pabidangGermCount);
         SpawnGerm(pacuteNaGerm, pacuteNaGermCount);
