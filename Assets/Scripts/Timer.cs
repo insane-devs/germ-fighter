@@ -45,6 +45,11 @@ public class Timer : MonoBehaviour
         timerLabel.text = string.Format("Wave {3} - {0:00}:{1:00}.{2:000}", minutes, seconds, fraction, wave);
     }
 
+    public void EndWave()
+    {
+        time = 0;
+    }
+
     public void StopTimer()
     {
         timeRunning = false;

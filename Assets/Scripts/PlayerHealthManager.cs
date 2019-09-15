@@ -12,6 +12,8 @@ public class PlayerHealthManager : MonoBehaviour
     public float flashTime;
     private float flashCounter;
 
+    public GameObject postGameObject;
+
     private Renderer rend;
     private Color storedColor;
 
@@ -36,10 +38,11 @@ public class PlayerHealthManager : MonoBehaviour
         {
             FindObjectOfType<Timer>().StopTimer();
             gameObject.SetActive(false);
-            GameObject.Find("Post-Game").SetActive(true);
+            postGameObject.SetActive(true);
+            Time.timeScale = 0;
             scoreLabel = GameObject.Find("Post-Game/Final Score").GetComponent<Text>();
             scoreLabel.text = string.Format("Score: {0}", gameObject.GetComponent<PlayerScoreManager>().GetScore());
-        } else if(currentHealth <100)
+        } else if (currentHealth < 100)
         {
             regenCounter -= Time.deltaTime;
             if (regenCounter <= 0)

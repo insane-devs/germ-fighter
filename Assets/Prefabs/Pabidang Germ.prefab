@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDamage: 20
   maxDamage: 40
+  defense: 0
   timeBetweenAttacks: 3
 --- !u!1 &7361260465171389976
 GameObject:
@@ -169,7 +170,7 @@ GameObject:
   - component: {fileID: 7361260465741359848}
   m_Layer: 0
   m_Name: Pabidang Germ
-  m_TagString: Enemy
+  m_TagString: Enemy Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

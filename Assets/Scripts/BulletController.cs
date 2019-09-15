@@ -10,12 +10,6 @@ public class BulletController : MonoBehaviour
 
     public int damageToGive;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +24,7 @@ public class BulletController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Enemy Boss")
         {
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToGive);
             Destroy(gameObject);

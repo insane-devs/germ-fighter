@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDamage: 2
   maxDamage: 10
+  defense: 0
   timeBetweenAttacks: 1
 --- !u!1 &826705848251432995
 GameObject:

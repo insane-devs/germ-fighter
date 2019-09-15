@@ -8,15 +8,21 @@ public class GameManager : MonoBehaviour
     public GameObject postGameObject;
     public GameObject pauseMenu;
 
-    private void Start()
+    void Start()
     {
         Time.timeScale = 1;
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
-            postGameObject = GameObject.Find("Post-Game");
             postGameObject.SetActive(false);
-            pauseMenu = GameObject.Find("Pause Menu");
             pauseMenu.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        if (!GameObject.FindWithTag("Enemy") && !GameObject.FindWithTag("Enemy Boss"))
+        {
+            FindObjectOfType<Timer>().EndWave();
         }
     }
     public void StartGame()
