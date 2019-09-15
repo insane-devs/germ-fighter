@@ -11,10 +11,12 @@ public class Timer : MonoBehaviour
 
     private float time;
     private int wave;
+    private bool timeRunning;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeRunning = true;
         time = totalTime;
         wave = 1;
         timerLabel = gameObject.GetComponent<Text>();
@@ -34,11 +36,17 @@ public class Timer : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!timeRunning) return;
         time -= Time.deltaTime;
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
         float fraction = (time * 100) % 100;
 
         timerLabel.text = string.Format("Wave {3} - {0:00}:{1:00}.{2:000}", minutes, seconds, fraction, wave);
+    }
+
+    public void StopTimer()
+    {
+        timeRunning = false;
     }
 }

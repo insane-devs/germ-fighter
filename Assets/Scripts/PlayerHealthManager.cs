@@ -32,6 +32,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            FindObjectOfType<Timer>().StopTimer();
             gameObject.SetActive(false);
             postGameObject.SetActive(true);
             scoreLabel = GameObject.Find("Post-Game/Final Score").GetComponent<Text>();
