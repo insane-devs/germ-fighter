@@ -21,15 +21,15 @@ public class GermSpawner : MonoBehaviour
 
     public void SpawnGerms()
     {
-        SpawnGerm(pabidangGerm, pabidangGermCount);
-        SpawnGerm(pacuteNaGerm, pacuteNaGermCount);
+        SpawnGerm(pabidangGerm, pabidangGermCount, pabidangGerm.transform.localScale.y);
+        SpawnGerm(pacuteNaGerm, pacuteNaGermCount, pacuteNaGerm.transform.localScale.y);
     }
 
-    void SpawnGerm(GameObject germPrefab, int numObjects)
+    void SpawnGerm(GameObject germPrefab, int numObjects, float offset)
     {
         for (int i = 0; i < numObjects; i++)
         {
-            Vector3 center = transform.position;
+            Vector3 center = transform.position + new Vector3(0,offset,0);
             Vector3 pos = ProduceCircle(center, 25.0f);
             Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center - pos);
             Instantiate(germPrefab, pos, rotation);

@@ -127,7 +127,7 @@ public class StatsManager : MonoBehaviour
             defense = 5;
         }
 
-        if (carboCounter == idealNumber && proteinCounter == idealNumber && vitaminsCounter == idealNumber)
+        if (carboCounter >= idealNumber-1 && carboCounter <= idealNumber+1 && proteinCounter >= idealNumber-1 && proteinCounter <= idealNumber+1 && vitaminsCounter >= idealNumber-1 && vitaminsCounter <= idealNumber+1)
         {
             //boost strength (damage)
             damageToGive = 10;
@@ -136,5 +136,6 @@ public class StatsManager : MonoBehaviour
             //normal strength (damage)
             damageToGive = 5;
         }
+
     }
 }

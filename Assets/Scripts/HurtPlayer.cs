@@ -63,7 +63,7 @@ public class HurtPlayer : MonoBehaviour
                 damageTaken = rand.Next(minDamage, maxDamage + 1);
                 if(defense != 0)
                 {
-                    damageTaken = damageTaken - (damageTaken*rand.Next(defense-1, defense+1)/100);
+                    damageTaken = (int)(damageTaken - (damageTaken*rand.Next(defense-1, defense+1)/100));
                 }
                 player.HurtPlayer(damageTaken);
             }
