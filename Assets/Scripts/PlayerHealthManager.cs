@@ -15,13 +15,10 @@ public class PlayerHealthManager : MonoBehaviour
     private Color storedColor;
 
     private Text scoreLabel;
-    private GameObject postGameObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        postGameObject = GameObject.Find("Post-Game");
-        postGameObject.SetActive(false);
         currentHealth = startingHealth;
         rend = GetComponent<Renderer>();
         storedColor = rend.material.GetColor("_Color");
@@ -34,7 +31,7 @@ public class PlayerHealthManager : MonoBehaviour
         {
             FindObjectOfType<Timer>().StopTimer();
             gameObject.SetActive(false);
-            postGameObject.SetActive(true);
+            GameObject.Find("Post-Game").SetActive(true);
             scoreLabel = GameObject.Find("Post-Game/Final Score").GetComponent<Text>();
             scoreLabel.text = string.Format("Score: {0}", gameObject.GetComponent<PlayerScoreManager>().GetScore());
         }
