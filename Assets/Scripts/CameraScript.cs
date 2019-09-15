@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 pos = new Vector3();
         pos.x = player.position.x;
