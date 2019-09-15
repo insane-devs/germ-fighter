@@ -54,4 +54,9 @@ public class Timer : MonoBehaviour
     {
         timeRunning = false;
     }
+
+    public int GetWave()
+    {
+        return wave;
+    }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7549222025632173581}
   - component: {fileID: 7549222025632173580}
   - component: {fileID: 7549222025632173571}
+  - component: {fileID: -1385272298278553539}
   m_Layer: 0
   m_Name: Broccoli
   m_TagString: Untagged
@@ -121,6 +122,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 90
+--- !u!114 &-1385272298278553539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549222025632173570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3c6a3812bd6b648ac6890c03f8f32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7549222025931062783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,11 +141,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7549222025632173576}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 3c31426365f55bf4fbd1a27b9b5ee5f1,
-        type: 3}
-      propertyPath: m_Name
-      value: broccoli
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3c31426365f55bf4fbd1a27b9b5ee5f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -202,6 +210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3c31426365f55bf4fbd1a27b9b5ee5f1,
+        type: 3}
+      propertyPath: m_Name
+      value: broccoli
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c31426365f55bf4fbd1a27b9b5ee5f1, type: 3}

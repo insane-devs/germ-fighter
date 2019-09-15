@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public GameObject postGameObject;
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
+    public GameObject infoMenu;
+
+    private int muted;
 
     void Start()
     {
@@ -15,16 +19,21 @@ public class GameManager : MonoBehaviour
         {
             postGameObject.SetActive(false);
             pauseMenu.SetActive(false);
+        } else
+        {
+            settingsMenu.SetActive(false);
+            infoMenu.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (!GameObject.FindWithTag("Enemy") && !GameObject.FindWithTag("Enemy Boss"))
+        if (SceneManager.GetActiveScene().name == "GameScene" && !GameObject.FindWithTag("Enemy") && !GameObject.FindWithTag("Enemy Boss"))
         {
             FindObjectOfType<Timer>().EndWave();
         }
     }
+
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene");
@@ -47,5 +56,23 @@ public class GameManager : MonoBehaviour
         if (Time.timeScale == 1) return;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+    }
+
+    public void ToggleSounds()
+    {
+        muted = PlayerPrefs.GetInt("mute", 0);
+        if (muted == 1) PlayerPrefs.SetInt("mute", 0);
+        else PlayerPrefs.SetInt("mute", 1);
+        PlayerPrefs.Save();
+    }
+
+    public void ToggleSettings()
+    {
+        settingsMenu.SetActive(!settingsMenu.activeSelf);
+    }
+
+    public void ToggleInfo()
+    {
+        infoMenu.SetActive(!infoMenu.activeSelf);
     }
 }
