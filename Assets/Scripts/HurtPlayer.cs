@@ -6,6 +6,9 @@ public class HurtPlayer : MonoBehaviour
 {
     public int minDamage;
     public int maxDamage;
+    public int defense;
+
+    private int damageTaken;
 
     private PlayerHealthManager player;
 
@@ -31,6 +34,7 @@ public class HurtPlayer : MonoBehaviour
     {
         player = FindObjectOfType<PlayerHealthManager>();
         collided = false;
+        defense = player.defense;
     }
 
     void Update()
@@ -56,7 +60,12 @@ public class HurtPlayer : MonoBehaviour
             {
                 attackCounter = timeBetweenAttacks;
                 System.Random rand = new System.Random();
-                player.HurtPlayer(rand.Next(minDamage, maxDamage + 1));
+                damageTaken = rand.Next(minDamage, maxDamage + 1);
+                if(defense != 0)
+                {
+                    damageTaken = damageTaken - (damageTaken*rand.Next(defense-1, defense+1)/100);
+                }
+                player.HurtPlayer(damageTaken);
             }
 
         }

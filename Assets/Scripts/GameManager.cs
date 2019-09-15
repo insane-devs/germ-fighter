@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject postGameObject;
-    private GameObject pauseMenu;
+    public GameObject postGameObject;
+    public GameObject pauseMenu;
 
     private void Start()
     {

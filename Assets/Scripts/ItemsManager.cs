@@ -15,9 +15,9 @@ public class ItemsManager : MonoBehaviour
     void Start()
     {
         pickUpItems = FindObjectOfType<PickUpItems>();
-        carboCounter = 0;
-        proteinCounter = 0;
-        vitaminsCounter = 0;
+        carboCounter = 1;
+        proteinCounter = 1;
+        vitaminsCounter = 1;
     }
 
     // Update is called once per frame

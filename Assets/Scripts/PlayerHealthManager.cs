@@ -7,6 +7,7 @@ public class PlayerHealthManager : MonoBehaviour
 {
     public int startingHealth;
     public int currentHealth;
+    public int defense;
 
     public float flashTime;
     private float flashCounter;
@@ -15,6 +16,10 @@ public class PlayerHealthManager : MonoBehaviour
     private Color storedColor;
 
     private Text scoreLabel;
+
+    public float timeBetweenRegen;
+    private float regenCounter;
+    public int regenRate;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +39,14 @@ public class PlayerHealthManager : MonoBehaviour
             GameObject.Find("Post-Game").SetActive(true);
             scoreLabel = GameObject.Find("Post-Game/Final Score").GetComponent<Text>();
             scoreLabel.text = string.Format("Score: {0}", gameObject.GetComponent<PlayerScoreManager>().GetScore());
+        } else if(currentHealth <100)
+        {
+            regenCounter -= Time.deltaTime;
+            if (regenCounter <= 0)
+            {
+                regenCounter = timeBetweenRegen;
+                currentHealth += regenRate;
+            }
         }
 
         if (flashCounter > 0)
