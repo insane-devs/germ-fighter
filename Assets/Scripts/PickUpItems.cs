@@ -24,7 +24,7 @@ public class PickUpItems : MonoBehaviour
         if (other.tag == "Player")
         {
             itemsManager.ItemCounter((int)typeOfItem);
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
 {
-    public List<Transform> foodList = new List<Transform>();
+    public List<Transform> foodList;
 
     private Transform foodInstance;
 
@@ -17,7 +17,11 @@ public class FoodSpawner : MonoBehaviour
 
     void SpawnFood()
     {
-        foreach (Transform food in foodList)
+        List<Transform> spawnList = new List<Transform>();
+        System.Random rand = new System.Random();
+        while (spawnList.Count < 3) spawnList.Add(foodList[rand.Next(0, foodList.Count)]);
+
+        foreach (Transform food in spawnList)
         {
             float randomX = 5 * Random.Range(-transform.localScale.x, transform.localScale.x);
             float randomZ = 5 * Random.Range(-transform.localScale.z, transform.localScale.z);

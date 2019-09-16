@@ -36,11 +36,9 @@ public class PlayerHealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             FindObjectOfType<Timer>().StopTimer();
-            gameObject.SetActive(false);
-            deathSFX.Play();
+            GameObject.FindWithTag("Music").GetComponent<AudioSource>().Stop();
             postGameObject.SetActive(true);
             Time.timeScale = 0;
-            GameObject.FindGameObjectWithTag("Music").GetComponent<Ambience>().StopMusic();
 
             int newHighScore = gameObject.GetComponent<PlayerScoreManager>().GetScore();
             int bestWave = FindObjectOfType<Timer>().GetWave();
@@ -75,6 +73,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void HurtPlayer(int damage)
     {
+        deathSFX.Play();
         currentHealth -= damage;
         if (currentHealth < 0) currentHealth = 0;
         flashCounter = flashTime;

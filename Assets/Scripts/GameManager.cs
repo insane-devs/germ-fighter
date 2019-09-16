@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (PlayerPrefs.GetInt("mute", 0) == 0) GameObject.FindWithTag("Music").GetComponent<AudioSource>().UnPause();
+        else GameObject.FindWithTag("Music").GetComponent<AudioSource>().Pause();
         if (SceneManager.GetActiveScene().name == "GameScene" && !GameObject.FindWithTag("Enemy") && !GameObject.FindWithTag("Enemy Boss"))
         {
             FindObjectOfType<Timer>().EndWave();

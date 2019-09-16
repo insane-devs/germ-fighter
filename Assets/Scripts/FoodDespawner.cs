@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FoodDespawner : MonoBehaviour
 {
-
     private float time;
 
     // Start is called before the first frame update
