@@ -19,7 +19,7 @@ public class FoodSpawner : MonoBehaviour
     {
         List<Transform> spawnList = new List<Transform>();
         System.Random rand = new System.Random();
-        while (spawnList.Count < 3) spawnList.Add(foodList[rand.Next(0, foodList.Count)]);
+        while (spawnList.Count < 5) spawnList.Add(foodList[rand.Next(0, foodList.Count)]);
 
         foreach (Transform food in spawnList)
         {

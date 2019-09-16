@@ -1880,7 +1880,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Germs\n\nGerms are anywhere around us being a factor of having diseases,
+  m_Text: "[ Germs ]\n\nGerms are anywhere around us being a factor of having diseases,
     that\u2019s why in this game the player aims to survive against the germs attacking
     it. Power-ups in the game when compared to real life situations are foods that
     fight off diseases. Germs come in two forms: B.Bacteria and S.Bacterium. To In
@@ -2697,8 +2697,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\rGerm Fighter: A Guide for a Healthy Diet \n\r\nMade By:\nJoshua Permito\n\nColeen
-    Kate Saligue\n\nGwyneth Andrei Bait\n\nKristelle Sebastian\n\nJosue Rey Dapito "
+  m_Text: "[ \rGerm Fighter: A Guide for a Healthy Diet  ]\n\r---------------------------\n*Made
+    By:*\n\n\u2022 Joshua Permito\n\n\u2022 Coleen Kate Saligue\n\n\u2022 Gwyneth
+    Andrei Bait\n\n\u2022 Kristelle Sebastian\n\n\u2022 Josue Rey Dapito "
 --- !u!222 &1238673935
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3649,7 +3650,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Pickup Items (Food)\n\nThe pickup items or food in \u2018Germ Fighter\u2019
+  m_Text: "[ Pickup Items (Food) ]\n\nThe pickup items or food in \u2018Germ Fighter\u2019
     helps the character increase in speed and strength but if the ideal amount is
     outgrown by the amount consumed, the statistics of the player will be affected
     negatively reducing its ability to defeat the germs attacking. All of the items

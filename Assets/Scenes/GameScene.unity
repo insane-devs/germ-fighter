@@ -595,6 +595,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 664226293}
   settingsMenu: {fileID: 0}
   infoMenu: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!4 &352629954
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,7 +1693,7 @@ MonoBehaviour:
   isFiring: 0
   bullet: {fileID: -854709189509828412, guid: e6ca91b4ecb6b58428dde6dd29781507, type: 3}
   bulletSpeed: 7
-  timeBetweenShots: 0.1
+  timeBetweenShots: 0.2
   firePoint: {fileID: 2130632021}
   bulletFireSFX: {fileID: 80118229}
 --- !u!4 &783618751
