@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject infoMenu;
+
+    public Slider slider;
 
     private int muted;
 
@@ -71,10 +74,12 @@ public class GameManager : MonoBehaviour
     public void ToggleSettings()
     {
         settingsMenu.SetActive(!settingsMenu.activeSelf);
+        slider.value = PlayerPrefs.GetFloat("volume", slider.value);
     }
 
     public void ToggleInfo()
     {
         infoMenu.SetActive(!infoMenu.activeSelf);
     }
+
 }

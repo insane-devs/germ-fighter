@@ -25,6 +25,7 @@ public class StatsManager : MonoBehaviour
 
     private int idealNumber;
     public int idealDifference;
+    public int bestDifference;
 
     public PlayerHealthManager playerHealthManager;
     public BulletController bulletController;
@@ -65,7 +66,7 @@ public class StatsManager : MonoBehaviour
             "\nProtein: " + proteinCounter.ToString("0") +
             "\nVitamin: " + vitaminsCounter.ToString("0"));
 
-        idealNumber = (int)((carboCounter + proteinCounter + vitaminsCounter) / 3);
+        idealNumber = 100;
 
         //carbo
         if (Math.Abs(idealNumber - carboCounter) > idealDifference)
@@ -81,10 +82,14 @@ public class StatsManager : MonoBehaviour
                 moveSpeed = 5;
             }
         }
-        else
+        else if (Math.Abs(idealNumber - carboCounter) < bestDifference)
         {
             //increase speed
             moveSpeed = 12;
+        } else
+        {
+            //normal speed
+            moveSpeed = 8;
         }
 
         //protein
@@ -101,14 +106,18 @@ public class StatsManager : MonoBehaviour
                 regenRate = 0;
             }
         }
-        else
+        else if (Math.Abs(idealNumber - proteinCounter) < bestDifference)
         {
             //increase regen
             regenRate = 3;
+        } else
+        { 
+            //normal regen
+            regenRate = 1;
         }
 
         //vitamins
-        if (Math.Abs(idealNumber - carboCounter) > idealDifference)
+        if (Math.Abs(idealNumber - vitaminsCounter) > idealDifference)
         {
             if (carboCounter > idealNumber)
             {
@@ -121,20 +130,28 @@ public class StatsManager : MonoBehaviour
                 defense = 0;
             }
         }
-        else
+        else if(Math.Abs(idealNumber-vitaminsCounter) < bestDifference)
         {
             //increase defense
             defense = 5;
+        } else
+        {
+            //normal defense
+            defense = 2;
         }
 
-        if (carboCounter >= idealNumber-1 && carboCounter <= idealNumber+1 && proteinCounter >= idealNumber-1 && proteinCounter <= idealNumber+1 && vitaminsCounter >= idealNumber-1 && vitaminsCounter <= idealNumber+1)
+        //all 3
+        if (Math.Abs(idealNumber - carboCounter) < bestDifference && Math.Abs(idealNumber - proteinCounter) < bestDifference && Math.Abs(idealNumber - vitaminsCounter) < bestDifference)
         {
             //boost strength (damage)
             damageToGive = 10;
-        } else
+        } else if(Math.Abs(idealNumber - carboCounter) < idealDifference && Math.Abs(idealNumber - proteinCounter) < idealDifference && Math.Abs(idealNumber - vitaminsCounter) < idealDifference)
         {
             //normal strength (damage)
             damageToGive = 5;
+        } else
+        {
+            damageToGive = 2;
         }
 
     }

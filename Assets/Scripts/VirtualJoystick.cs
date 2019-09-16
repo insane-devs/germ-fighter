@@ -6,6 +6,14 @@ using UnityEngine.EventSystems;
 
 public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
+    private bool pointerDown;
+
+    public GunController theGun;
+
+
+
+    public bool shootJoystick;
+
     private Image bgImg;
     private Image joystickImg;
     private Vector3 inputVector;
@@ -14,6 +22,21 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     {
         bgImg = GetComponent<Image>();
         joystickImg = transform.GetChild(0).GetComponent<Image>();
+    }
+
+    private void Update()
+    {
+        if (shootJoystick)
+        {
+            if (pointerDown)
+            {
+                theGun.isFiring = true;
+            }
+            else
+            {
+                theGun.isFiring = false;
+            }
+        }
     }
 
     public virtual void OnDrag(PointerEventData ped)
@@ -25,6 +48,8 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
             pos.y = (pos.y / bgImg.rectTransform.sizeDelta.y);
 
             inputVector = new Vector3(pos.x * 2 - 1, 0, pos.y * 2 - 1);
+            if (shootJoystick) inputVector = new Vector3(pos.x * 2 + 1, 0, pos.y * 2 - 1);
+            if (shootJoystick) pointerDown = true;
             inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
 
             joystickImg.rectTransform.anchoredPosition = new Vector3(inputVector.x * (bgImg.rectTransform.sizeDelta.x / 2), inputVector.z * (bgImg.rectTransform.sizeDelta.y / 2));
@@ -32,13 +57,16 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
     }
     public virtual void OnPointerDown(PointerEventData ped)
     {
+        if (shootJoystick) pointerDown = true;
         OnDrag(ped);
+        if (shootJoystick) pointerDown = true;
     }
 
     public virtual void OnPointerUp(PointerEventData ped)
     {
         inputVector = Vector3.zero;
         joystickImg.rectTransform.anchoredPosition = Vector3.zero;
+        if(shootJoystick) Reset();
     }   
 
     public float Horizontal()
@@ -61,5 +89,10 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
         {
             return Input.GetAxis("Vertical");
         }
+    }
+
+    private void Reset()
+    {
+        pointerDown = false;
     }
 }

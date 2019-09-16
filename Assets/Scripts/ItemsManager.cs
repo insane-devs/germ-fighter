@@ -8,6 +8,8 @@ public class ItemsManager : MonoBehaviour
     public int carboCounter;
     public int proteinCounter;
     public int vitaminsCounter;
+    public int consumeTime;
+    public float consumeCounter;
 
     private PickUpItems pickUpItems;
 
@@ -15,15 +17,22 @@ public class ItemsManager : MonoBehaviour
     void Start()
     {
         pickUpItems = FindObjectOfType<PickUpItems>();
-        carboCounter = 1;
-        proteinCounter = 1;
-        vitaminsCounter = 1;
+        carboCounter = 100;
+        proteinCounter = 100;
+        vitaminsCounter = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        consumeCounter -= Time.deltaTime;
+        if (consumeCounter < 0)
+        {
+            consumeCounter = consumeTime;
+            carboCounter -= 1;
+            proteinCounter -= 1;
+            vitaminsCounter -= 1;
+        }
     }
 
     public void ItemCounter(int ItemType)

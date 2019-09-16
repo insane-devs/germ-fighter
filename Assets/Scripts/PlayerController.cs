@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCamera;
 
-    public VirtualJoystick joystick;
+    public VirtualJoystick movejoystick;
+    public VirtualJoystick shootJoystick;
     private Vector3 moveVelocity2;
 
     public GunController theGun;
@@ -26,13 +27,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = Vector3.zero;
-        dir.x = joystick.Horizontal();
-        dir.z = joystick.Vertical();
+        Vector3 moveDir = Vector3.zero;
+        moveDir.x = movejoystick.Horizontal();
+        moveDir.z = movejoystick.Vertical();
 
-        moveVelocity2 = dir * moveSpeed;
+        moveVelocity2 = moveDir * moveSpeed;
 
-        transform.LookAt(new Vector3(dir.x + transform.position.x, transform.position.y, dir.z + transform.position.z));
+
+        Vector3 lookDir = Vector3.zero;
+        lookDir.x = shootJoystick.Horizontal();
+        lookDir.z = shootJoystick.Vertical();
+
+
+        if (lookDir == new Vector3(0, 0, 0))
+        {
+            transform.LookAt(new Vector3(moveDir.x + transform.position.x, transform.position.y, moveDir.z + transform.position.z));
+        }
+        else
+        {
+            transform.LookAt(new Vector3(lookDir.x + transform.position.x, transform.position.y, lookDir.z + transform.position.z));
+        }
+
 
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * moveSpeed;
