@@ -65,7 +65,7 @@ public class StatsManager : MonoBehaviour
         //UI FOODCOUNTER
         foodCounterText.text = ("\nCarbo: " + carboCounter.ToString("0") +
             "\nProtein: " + proteinCounter.ToString("0") +
-            "\nVitamin: " + vitaminsCounter.ToString("0"));
+            "\nVitamins: " + vitaminsCounter.ToString("0"));
 
         idealNumber = 100;
 
