@@ -3,6 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
+
+public class InterstitialAdScript : MonoBehaviour
+{
+    string gameId = "3284001";
+    bool testMode = true;
+
+    // Initialize the Ads service
+    void Start()
+    {
+        Advertisement.Initialize(gameId, testMode);
+    }
+}
 
 public class GameManager : MonoBehaviour
 {
