@@ -3275,8 +3275,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Thank you for playing! \r\n\r\n[ Graphic Designers\r ]\nColeen Kate Saligue\r\nGwyneth
     Andrei Bait\r\nJoshua Permito\r\n\r\n[ Game Developers\r ]\nColeen Kate Saligue\r\nGwyneth
-    Andrei Bait\r\nKristelle Sebastian\r\nJosue Permito\r\nJoshua Permito\r\n\r\n[
-    Special Thanks\r ]\nGenesis Eborde"
+    Andrei Bait\r\nKristelle Sebastian\r\nJosue Dapito\nJoshua Permito\r\n\r\n[ Special
+    Thanks\r ]\nGenesis Eborde"
 --- !u!222 &1550113488
 CanvasRenderer:
   m_ObjectHideFlags: 0
