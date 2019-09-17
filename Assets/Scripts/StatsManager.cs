@@ -56,10 +56,11 @@ public class StatsManager : MonoBehaviour
 
         //UI PLAYERSTATS
         score.text = string.Format("{0}", playerScore.GetScore());
-        playerStatsText.text = ("HP: " + currentHealth.ToString("0") + 
-            "\nMove Speed: "+ moveSpeed.ToString("0") +
+        playerStatsText.text = ("HP: " + currentHealth.ToString("0") +
+            "\nMove Speed: " + moveSpeed.ToString("0") +
             "\nDamage: " + damageToGive.ToString("0") +
-            "\nDefense: " + defense.ToString("0"));
+            "\nDefense: " + defense.ToString("0")) +
+            "\nRegen: " + regenRate.ToString("0");
 
         //UI FOODCOUNTER
         foodCounterText.text = ("\nCarbo: " + carboCounter.ToString("0") +
@@ -68,91 +69,76 @@ public class StatsManager : MonoBehaviour
 
         idealNumber = 100;
 
-        //carbo
-        if (Math.Abs(idealNumber - carboCounter) > idealDifference)
+        //Normal Stats
+        int moveSpeedNormal = 8;
+        int damageToGiveNormal = 5;
+        int defenseNormal = 2;
+        int regenRateNormal = 2;
+
+        int carboDiff = idealNumber - carboCounter;
+        int proteinDiff = idealNumber - proteinCounter;
+        int vitaminsDiff = idealNumber - vitaminsCounter;
+
+        int moveSpeedCtr = 0;
+        int damageToGiveCtr = 0;
+        int defenseCtr = 0;
+        int regenRateCtr = 0;
+        
+        switch (carboDiff)
         {
-            if (carboCounter > idealNumber)
-            {
-                //decrease regen
-                regenRate = 0;
-            }
-            else
-            {
-                //decrease speed
-                moveSpeed = 5;
-            }
-        }
-        else if (Math.Abs(idealNumber - carboCounter) < bestDifference)
-        {
-            //increase speed
-            moveSpeed = 12;
-        } else
-        {
-            //normal speed
-            moveSpeed = 8;
+            case int n when (n > 15):
+                regenRateCtr -= 1;
+                break;
+            case int n when (n >= -5 && n <= 5):
+                moveSpeedCtr += 4;
+                break;
+            case int n when (n < -15):
+                moveSpeedCtr -= 2;
+                break;
         }
 
-        //protein
-        if (Math.Abs(idealNumber - proteinCounter) > idealDifference)
+        switch (proteinDiff)
         {
-            if (proteinCounter > idealNumber)
-            {
-                //decrease defense
-                defense = 0;
-            }
-            else
-            {
-                //decrease regen
-                regenRate = 0;
-            }
-        }
-        else if (Math.Abs(idealNumber - proteinCounter) < bestDifference)
-        {
-            //increase regen
-            regenRate = 3;
-        } else
-        { 
-            //normal regen
-            regenRate = 1;
+            case int n when (n > 15):
+                defenseCtr -= 1;
+                break;
+            case int n when (n >= -5 && n <= 5):
+                regenRateCtr += 2;
+                break;
+            case int n when (n < -15):
+                regenRateCtr -= 1;
+                break;
         }
 
-        //vitamins
-        if (Math.Abs(idealNumber - vitaminsCounter) > idealDifference)
+        switch (vitaminsDiff)
         {
-            if (carboCounter > idealNumber)
-            {
-                //decrease speed
-                moveSpeed = 5;
-            }
-            else
-            {
-                //decrease defense
-                defense = 0;
-            }
-        }
-        else if(Math.Abs(idealNumber-vitaminsCounter) < bestDifference)
-        {
-            //increase defense
-            defense = 5;
-        } else
-        {
-            //normal defense
-            defense = 2;
+            case int n when (n > 15):
+                moveSpeedCtr -= 2;
+                break;
+            case int n when (n >= -5 && n <= 5):
+                defenseCtr += 3;
+                break;
+            case int n when (n < -15):
+                defenseCtr -= 1;
+                break;
         }
 
         //all 3
-        if (Math.Abs(idealNumber - carboCounter) < bestDifference && Math.Abs(idealNumber - proteinCounter) < bestDifference && Math.Abs(idealNumber - vitaminsCounter) < bestDifference)
+        if (Math.Abs(carboDiff) <= bestDifference && Math.Abs(proteinDiff) <= bestDifference && Math.Abs(vitaminsDiff) <= bestDifference)
         {
             //boost strength (damage)
-            damageToGive = 10;
-        } else if(Math.Abs(idealNumber - carboCounter) < idealDifference && Math.Abs(idealNumber - proteinCounter) < idealDifference && Math.Abs(idealNumber - vitaminsCounter) < idealDifference)
+            damageToGiveCtr += 5;
+        } else if(Math.Abs(carboDiff) > idealDifference && Math.Abs(proteinDiff) > idealDifference && Math.Abs(vitaminsDiff) > idealDifference)
         {
             //normal strength (damage)
-            damageToGive = 5;
-        } else
-        {
-            damageToGive = 2;
+            damageToGive -= 3;
         }
+
+        //Update Stats
+        moveSpeed = moveSpeedNormal + moveSpeedCtr;
+        damageToGive = damageToGiveNormal + damageToGiveCtr;
+        defense = defenseNormal + defenseCtr;
+        regenRate = regenRateNormal + regenRateCtr;
 
     }
 }

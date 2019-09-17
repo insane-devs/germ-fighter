@@ -39,13 +39,13 @@ public class ItemsManager : MonoBehaviour
     {
         switch (ItemType)
         {
-            case 0: carboCounter += 1;
+            case 0: carboCounter += 2;
                 break;
 
-            case 1: proteinCounter += 1;
+            case 1: proteinCounter += 2;
                 break;
 
-            case 2: vitaminsCounter += 1;
+            case 2: vitaminsCounter += 2;
                 break;
         }
     }

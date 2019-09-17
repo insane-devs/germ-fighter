@@ -1098,7 +1098,9 @@ MonoBehaviour:
 
     Damage: 5
 
-    Defense: 2'
+    Defense: 2
+
+    Regen: 2'
 --- !u!222 &693089028
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1154,7 +1156,7 @@ MonoBehaviour:
   defense: 2
   regenRate: 1
   idealDifference: 15
-  bestDifference: 0
+  bestDifference: 5
   playerHealthManager: {fileID: 1353240870}
   bulletController: {fileID: -854709189509828412, guid: e6ca91b4ecb6b58428dde6dd29781507,
     type: 3}
@@ -1693,7 +1695,7 @@ MonoBehaviour:
   isFiring: 0
   bullet: {fileID: -854709189509828412, guid: e6ca91b4ecb6b58428dde6dd29781507, type: 3}
   bulletSpeed: 7
-  timeBetweenShots: 0.2
+  timeBetweenShots: 0.15
   firePoint: {fileID: 2130632021}
   bulletFireSFX: {fileID: 80118229}
 --- !u!4 &783618751
@@ -2923,7 +2925,7 @@ MonoBehaviour:
   originalModel: {fileID: 1604426329}
   hurtModel: {fileID: 932431184}
   timeBetweenRegen: 5
-  regenRate: 1
+  regenRate: 2
   deathSFX: {fileID: 2050650480}
 --- !u!114 &1353240871
 MonoBehaviour:
@@ -3376,8 +3378,8 @@ MonoBehaviour:
   carboCounter: 100
   proteinCounter: 100
   vitaminsCounter: 100
-  consumeTime: 7
-  consumeCounter: 7
+  consumeTime: 6
+  consumeCounter: 6
 --- !u!4 &1509653532
 Transform:
   m_ObjectHideFlags: 0
