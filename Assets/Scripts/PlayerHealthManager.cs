@@ -56,7 +56,8 @@ public class PlayerHealthManager : MonoBehaviour
             if (regenCounter <= 0)
             {
                 regenCounter = timeBetweenRegen;
-                currentHealth += regenRate;
+                if (currentHealth + regenRate <= 100) currentHealth += regenRate;
+                else currentHealth = 100;
             }
         }
 

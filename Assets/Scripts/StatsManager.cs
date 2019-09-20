@@ -48,6 +48,11 @@ public class StatsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveSpeed = playerController.moveSpeed;
+        damageToGive = bulletController.damageToGive;
+        defense = playerHealthManager.defense;
+        regenRate = playerHealthManager.regenRate;
+
         //SUM VALUES
         currentHealth = playerHealth.currentHealth;
         carboCounter = itemsManager.carboCounter;
@@ -135,10 +140,10 @@ public class StatsManager : MonoBehaviour
         }
 
         //Update Stats
-        moveSpeed = moveSpeedNormal + moveSpeedCtr;
-        damageToGive = damageToGiveNormal + damageToGiveCtr;
-        defense = defenseNormal + defenseCtr;
-        regenRate = regenRateNormal + regenRateCtr;
+        playerController.moveSpeed = moveSpeedNormal + moveSpeedCtr;
+        bulletController.damageToGive = damageToGiveNormal + damageToGiveCtr;
+        playerHealthManager.defense = defenseNormal + defenseCtr;
+        playerHealthManager.regenRate = regenRateNormal + regenRateCtr;
 
     }
 }

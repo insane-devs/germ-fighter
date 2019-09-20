@@ -32,7 +32,7 @@ public class GermSpawner : MonoBehaviour
             Vector3 center = transform.position + new Vector3(0,offset,0);
             Vector3 pos = ProduceCircle(center, 25.0f);
             Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, center - pos);
-            Instantiate(germPrefab, pos, rotation);
+            Instantiate(germPrefab, pos, Quaternion.identity);
         }
     }
 
