@@ -9,6 +9,7 @@ public class StatsManager : MonoBehaviour
     public Text foodCounterText;
     public Text playerStatsText;
     public Text score;
+    public Text enemiesLeft;
     public PlayerHealthManager playerHealth;
     public PlayerScoreManager playerScore;
     public ItemsManager itemsManager;
@@ -145,5 +146,9 @@ public class StatsManager : MonoBehaviour
         playerHealthManager.defense = defenseNormal + defenseCtr;
         playerHealthManager.regenRate = regenRateNormal + regenRateCtr;
 
+        //Enemies Left
+        GameObject[] enemyCounter = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemyBossCounter = GameObject.FindGameObjectsWithTag("Enemy Boss");
+        enemiesLeft.text = "Enemies Left: " + (enemyCounter.Length + enemyBossCounter.Length).ToString("0");
     }
 }

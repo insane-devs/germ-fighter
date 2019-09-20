@@ -8,6 +8,14 @@ public class EnemyHealthManager : MonoBehaviour
     public int currentHealth;
     private int scoreToAdd;
 
+    public float flashTime;
+    private float flashCounter;
+
+    public GameObject originalModel;
+    public GameObject hurtModel;
+
+    public AudioSource deathSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +33,24 @@ public class EnemyHealthManager : MonoBehaviour
             FindObjectOfType<PlayerScoreManager>().AddScore(scoreToAdd);
             Destroy(gameObject);
         }
+
+        if (flashCounter > 0)
+        {
+            flashCounter -= Time.deltaTime;
+            if (flashCounter <= 0)
+            {
+                originalModel.SetActive(true);
+                hurtModel.SetActive(false);
+            }
+        }
     }
 
     public void HurtEnemy(int damage)
     {
+        deathSFX.Play();
         currentHealth -= damage;
+        flashCounter = flashTime;
+        hurtModel.SetActive(true);
+        originalModel.SetActive(false);
     }
 }
