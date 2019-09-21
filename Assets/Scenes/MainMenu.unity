@@ -2210,7 +2210,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -2221,13 +2221,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Carbohydrates: lack, ideal amt, excess (effects) \r\nProteins: lack, ideal
-    amt, excess (effects) \r\nVitamins: lack, ideal amt, excess (effects) \r\n\r\nFor
-    the pickup items to be useful and balanced for the game character to reach its
-    full ability, all the items consumed must be in proportion. \r\n\r\nHere are the
-    effects of the consumed pickup items in the game:\r\n\r\n\uF0E0Carbohydrates [bread,
-    cereal, cheese]\r\n    above ideal amount = decrease regeneration\r\n    ideal
-    amount= increase speed \r\n    below ideal amount = decrease speed \r\n\r\n\uF0E0Proteins
+  m_Text: "For the pickup items to be useful and balanced for the game character to
+    reach its full ability, all the items consumed must be in proportion. \r\n\r\nHere
+    are the effects of the consumed pickup items in the game:\r\n\r\n\uF0E0Carbohydrates
+    [bread, cereal, cheese]\r\n    above ideal amount = decrease regeneration\r\n
+    \   ideal amount= increase speed \r\n    below ideal amount = decrease speed \r\n\r\n\uF0E0Proteins
     [chicken, fish, milk]\r\n    above ideal amount= decrease defense \r\n    ideal
     amount= increase regeneration \r\n    below ideal amount = decrease regeneration\r\n\r\n\uF0E0Vitamins
     [broccoli, carrot, banana, apple]\r\n    above ideal amount = decrease speed\r\n
@@ -3640,7 +3638,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 11
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
