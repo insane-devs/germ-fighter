@@ -784,9 +784,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 664226293}
   settingsMenu: {fileID: 0}
   infoMenu: {fileID: 0}
-  playMenu: {fileID: 0}
-  networkManager: {fileID: 0}
-  multiMenu: {fileID: 0}
   slider: {fileID: 0}
 --- !u!4 &352629954
 Transform:
@@ -3203,7 +3200,7 @@ GameObject:
   - component: {fileID: 1353240870}
   - component: {fileID: 1353240876}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player Object
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3263,7 +3260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  movejoystick: {fileID: 1703193672}
+  moveJoystick: {fileID: 0}
   shootJoystick: {fileID: 1493688139}
   theGun: {fileID: 783618750}
 --- !u!54 &1353240872

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCamera;
 
-    public VirtualJoystick movejoystick;
+    public VirtualJoystick moveJoystick;
     public VirtualJoystick shootJoystick;
     private Vector3 moveVelocity2;
 
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        movejoystick = GameObject.Find("BGIMGJoystick").GetComponent<VirtualJoystick>();
+        moveJoystick = GameObject.Find("BGIMGJoystick").GetComponent<VirtualJoystick>();
         shootJoystick = GameObject.Find("BGIMGShootButton").GetComponent<VirtualJoystick>();
     }
 
@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 moveDir = Vector3.zero;
-        moveDir.x = movejoystick.Horizontal();
-        moveDir.z = movejoystick.Vertical();
+        moveDir.x = moveJoystick.Horizontal();
+        moveDir.z = moveJoystick.Vertical();
 
         moveVelocity2 = moveDir * moveSpeed;
 

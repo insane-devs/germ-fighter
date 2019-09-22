@@ -10,9 +10,6 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject infoMenu;
-    public GameObject playMenu;
-    public GameObject networkManager;
-    public GameObject multiMenu;
 
     public Slider slider;
 
@@ -29,9 +26,6 @@ public class GameManager : MonoBehaviour
         {
             settingsMenu.SetActive(false);
             infoMenu.SetActive(false);
-            playMenu.SetActive(false);
-            networkManager.SetActive(false);
-            multiMenu.SetActive(false);
         }
     }
 
@@ -88,24 +82,9 @@ public class GameManager : MonoBehaviour
         infoMenu.SetActive(!infoMenu.activeSelf);
     }
 
-    public void TogglePlay()
-    {
-        playMenu.SetActive(!playMenu.activeSelf);
-    }
-
-    public void ToggleMulti()
-    {
-        multiMenu.SetActive(!multiMenu.activeSelf);
-        playMenu.SetActive(!playMenu.activeSelf);
-        networkManager.SetActive(true);
-    }
-
     public void GoHome()
     {
         settingsMenu.SetActive(false);
         infoMenu.SetActive(false);
-        playMenu.SetActive(false);
-        networkManager.SetActive(false);
-        multiMenu.SetActive(false);
     }
 }
