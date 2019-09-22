@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        movejoystick = GameObject.Find("BGIMGJoystick").GetComponent<VirtualJoystick>();
+        shootJoystick = GameObject.Find("BGIMGShootButton").GetComponent<VirtualJoystick>();
     }
 
     // Update is called once per frame

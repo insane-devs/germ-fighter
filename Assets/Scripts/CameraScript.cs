@@ -12,6 +12,11 @@ public class CameraScript : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

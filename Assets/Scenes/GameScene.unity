@@ -784,6 +784,9 @@ MonoBehaviour:
   pauseMenu: {fileID: 664226293}
   settingsMenu: {fileID: 0}
   infoMenu: {fileID: 0}
+  playMenu: {fileID: 0}
+  networkManager: {fileID: 0}
+  multiMenu: {fileID: 0}
   slider: {fileID: 0}
 --- !u!4 &352629954
 Transform:
@@ -3200,7 +3203,7 @@ GameObject:
   - component: {fileID: 1353240870}
   - component: {fileID: 1353240876}
   m_Layer: 0
-  m_Name: Player Object
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3586,7 +3589,7 @@ GameObject:
   - component: {fileID: 1412203104}
   - component: {fileID: 1412203103}
   m_Layer: 9
-  m_Name: Post-Game
+  m_Name: PostGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
